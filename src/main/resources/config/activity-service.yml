@@ -6,29 +6,28 @@ spring:
     mongodb:
       uri: mongodb+srv://ajaydv1263:Sairam%401970@cluster-fitness.zuwxuda.mongodb.net/fitnessactivity?retryWrites=true&w=majority&connectTimeoutMS=30000&socketTimeoutMS=30000&maxPoolSize=50
 
+
+
   rabbitmq:
-    addresses: campbell.lmq.cloudamqp.com
-    username: revieqfp
-    password: nTSpY6ZpxTjqR1xloDPmQ02DtxOcpKXi
+    addresses: amqps://revieqfp:nTSpY6ZpxTjqR1xloDPmQ02DtxOcpKXi@campbell.lmq.cloudamqp.com/revieqfp
     virtual-host: revieqfp
-    ssl: true
-    exchange:
-      name: fitness.exchange
-    queue:
-      name: activity.queue
-    routing:
-      key: activity.tracking
-    listener:
-      simple:
-        retry:
-          enabled: true
-          max-attempts: 5
-          initial-interval: 2000
-          multiplier: 1.5
-          max-interval: 10000
 
 server:
   port: 8082
+
+
+
+rabbitmq:
+  exchange:
+    name: fitness.exchange
+  queue:
+    name: activity.queue
+  routing:
+    key: activity.tracking
+
+
+
+
 
 eureka:
   client:
@@ -40,4 +39,8 @@ eureka:
     registry-fetch-interval-seconds: 30
   instance:
     lease-renewal-interval-in-seconds: 10
-    lease-expiration-duration-in-seconds: 30
+    lease-expiration-duration-in-seconds: 90
+
+
+
+
