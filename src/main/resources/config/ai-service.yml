@@ -1,0 +1,32 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: ai-service
+
+  data:
+    mongodb:
+      uri: mongodb+srv://ajaydv1263:Sairam%401970@cluster-fitness.zuwxuda.mongodb.net/fitnessrecommendation?retryWrites=true&w=majority&connectTimeoutMS=30000&socketTimeoutMS=30000&maxPoolSize=50
+      
+
+  rabbitmq:
+    addresses: amqps://revieqfp:nTSpY6ZpxTjqR1xloDPmQ02DtxOcpKXi@campbell.lmq.cloudamqp.com/revieqfp
+    virtual-host: revieqfp
+eureka:
+  client:
+    service-url:
+      defaultZone: http://spring-eureka-microservice.onrender.com/eureka/
+
+rabbitmq:
+  exchange:
+    name: fitness.exchange
+  queue:
+    name: activity.queue
+  routing:
+    key: activity.tracking
+
+gemini:
+  api:
+    url: ${GEMINI_API_URL}
+    key: ${GEMINI_API_KEY}

@@ -1,0 +1,21 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://ballast.proxy.rlwy.net:34932/railway?sslmode=require
+    username: postgres
+    password: pKZDdCOpByXXzNDMkxXuKsQwyjcpUvch
+
+  jackson:
+    time-zone: Asia/Kolkata
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://spring-eureka-microservice.onrender.com/eureka/
