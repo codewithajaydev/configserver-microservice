@@ -19,14 +19,25 @@ spring:
         max-interval: 10000
 
   rabbitmq:
-    addresses: amqps://revieqfp:nTSpY6ZpxTjqR1xloDPmQ02DtxOcpKXi@campbell.lmq.cloudamqp.com/revieqfp
+    addresses: campbell.lmq.cloudamqp.com
+    username: revieqfp
+    password: nTSpY6ZpxTjqR1xloDPmQ02DtxOcpKXi
     virtual-host: revieqfp
+    ssl: true
     exchange:
       name: fitness.exchange
     queue:
       name: activity.queue
     routing:
       key: activity.tracking
+    listener:
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 5
+          initial-interval: 2000
+          multiplier: 1.5
+          max-interval: 10000
 
 server:
   port: 8082
