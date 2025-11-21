@@ -6,50 +6,24 @@ spring:
     mongodb:
       uri: mongodb+srv://ajaydv1263:Sairam%401970@cluster-fitness.zuwxuda.mongodb.net/fitnessactivity?retryWrites=true&w=majority&connectTimeoutMS=30000&socketTimeoutMS=30000&maxPoolSize=50
 
-  cloud:
-    config:
-      enabled: true
-      fail-fast: true
-      request-read-timeout: 10000
-      request-connect-timeout: 10000
-      retry:
-        max-attempts: 12
-        initial-interval: 2000
-        multiplier: 1.5
-        max-interval: 10000
+
 
   rabbitmq:
-    addresses: campbell.lmq.cloudamqp.com
-    username: revieqfp
-    password: nTSpY6ZpxTjqR1xloDPmQ02DtxOcpKXi
+    addresses: amqps://revieqfp:nTSpY6ZpxTjqR1xloDPmQ02DtxOcpKXi@campbell.lmq.cloudamqp.com/revieqfp
     virtual-host: revieqfp
-    ssl: true
-    exchange:
-      name: fitness.exchange
-    queue:
-      name: activity.queue
-    routing:
-      key: activity.tracking
-    listener:
-      simple:
-        retry:
-          enabled: true
-          max-attempts: 5
-          initial-interval: 2000
-          multiplier: 1.5
-          max-interval: 10000
 
 server:
   port: 8082
 
 eureka:
   client:
-    register-with-eureka: true
-    fetch-registry: true
     service-url:
-      defaultZone: https://spring-eureka-microservice.onrender.com/eureka/
-    initial-instance-info-replication-interval-seconds: 30
-    registry-fetch-interval-seconds: 30
-  instance:
-    lease-renewal-interval-in-seconds: 10
-    lease-expiration-duration-in-seconds: 30
+      defaultZone: http://spring-eureka-microservice.onrender.com/eureka/
+
+rabbitmq:
+  exchange:
+    name: fitness.exchange
+  queue:
+    name: activity.queue
+  routing:
+    key: activity.tracking
