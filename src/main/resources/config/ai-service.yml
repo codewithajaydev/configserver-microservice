@@ -15,8 +15,13 @@ spring:
     virtual-host: revieqfp
 eureka:
   client:
+    register-with-eureka: true
+    fetch-registry: true
     service-url:
-      defaultZone: http://spring-eureka-microservice.onrender.com/eureka/
+      defaultZone: https://spring-eureka-microservice.onrender.com/eureka/
+    initial-instance-info-replication-interval-seconds: 30
+    registry-fetch-interval-seconds: 30
+
 
 rabbitmq:
   exchange:
