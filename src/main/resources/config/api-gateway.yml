@@ -1,3 +1,6 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: api-gateway
@@ -13,36 +16,21 @@ spring:
       httpclient:
         ssl:
           useInsecureTrustManager: true
+
       routes:
         - id: user-service
-          uri: lb://USER-SERVICE
+          uri: https://user-fitness-microservices.onrender.com
           predicates:
             - Path=/api/users/**
 
         - id: activity-service
-          uri: lb://ACTIVITY-SERVICE
+          uri: https://activityservice-fitness-1.onrender.com
           predicates:
             - Path=/api/activities/**
 
         - id: ai-service
-          uri: lb://AI-SERVICE
+          uri: https://aiservice-fitness.onrender.com
           predicates:
             - Path=/api/recommendations/**
-
-server:
-  port: 8080
-
-
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: https://spring-eureka-microservice.onrender.com/eureka/
-    initial-instance-info-replication-interval-seconds: 30
-    registry-fetch-interval-seconds: 30
-  instance:
-    lease-renewal-interval-in-seconds: 10
-    lease-expiration-duration-in-seconds: 90
 
 

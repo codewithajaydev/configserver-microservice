@@ -15,15 +15,5 @@ spring:
       ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: https://spring-eureka-microservice.onrender.com/eureka/
-    initial-instance-info-replication-interval-seconds: 30
-    registry-fetch-interval-seconds: 30
-  instance:
-    lease-renewal-interval-in-seconds: 10
-    lease-expiration-duration-in-seconds: 90
+
 
