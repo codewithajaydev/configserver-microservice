@@ -3,17 +3,15 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://ballast.proxy.rlwy.net:34932/railway?sslmode=require
+    url: jdbc:postgresql://db.tuklojaztngcyekusisd.supabase.co:5432/postgres?sslmode=require
     username: postgres
-    password: pKZDdCOpByXXzNDMkxXuKsQwyjcpUvch
-
-  jackson:
-    time-zone: Asia/Kolkata
+    password: fitnessuserdb2025
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
       ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-
+    show-sql: true
 
 
